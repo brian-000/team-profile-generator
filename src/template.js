@@ -56,7 +56,6 @@ function generateHTML(data) {
     </head>
     
     <body>
-        <header class=" bg-dark text-light text-center"> My Team </header>
         <div class="card-deck">
             <div class="row">
                 <div class="col-md-3">
