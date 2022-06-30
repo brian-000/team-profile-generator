@@ -31,11 +31,7 @@ const promptUser = () => {
             message: "Enter manager's office number:",
         }
     ])
-
-    
-    
 }
-
 
 const addTeamMember = () => {
     return (
@@ -60,7 +56,6 @@ const addTeamMember = () => {
 
     )
 };
-
 
 createEngineer = () => {
     return (
