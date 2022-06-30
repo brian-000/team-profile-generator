@@ -3,18 +3,16 @@ const fs = require('fs');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
+const { writeFile } = require("./src/template.js");
 
-teamArray = [];
+let teamArray = [];
 
 const promptUser = () => {
     return inquirer.prompt([
         {
-            // Question #1 - Manager Name
             type: "input",
-            name: "managerName",
+            name: "name",
             message: "Enter manager's name:",
-
-
         },
 
         {
@@ -29,12 +27,13 @@ const promptUser = () => {
         },
         {
             type: "input",
-            name: "officeNum",
+            name: "officeNumber",
             message: "Enter manager's office number:",
         }
-
-
     ])
+
+    
+    
 }
 
 
@@ -140,21 +139,20 @@ createIntern = () => {
     )
 }
 
-const finalPrompt = (answers) => {
+const finalPrompt = () => {
     console.log("Generating a file....");
-    console.log("Done! Check index.html under the dist folder.");
-    console.log(teamArray[0]);
-    // console.log(
-    //     "This is the team data for your HTML file",
-
-    //     answers
-    // );
-
-    // return writeFile(answers);
+    // return writeFile(teamArray);
 };
 
-promptUser().then((answers) => {
-    console.log(answers);
-    addTeamMember();
+promptUser().then((input) => {
+
+        const manager = new Manager({
+            name: input.name,
+            id: input.id,
+            email: input.email,
+            officeNumber: input.officeNumber,
+        });
+        teamArray.push(manager);
+        addTeamMember();
 });
 
