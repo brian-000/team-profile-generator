@@ -141,7 +141,7 @@ createIntern = () => {
 
 const finalPrompt = () => {
     console.log("Generating a file....");
-    // return writeFile(teamArray);
+    return writeFile(teamArray);
 };
 
 promptUser().then((input) => {
